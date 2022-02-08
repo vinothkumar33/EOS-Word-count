@@ -1,0 +1,31 @@
+<script>
+window.onload=()=>{   
+    let text=
+    "This sentence is also a great example of a sentence that starts in one place and ends in another. We start with the belief in the narrator’s happiness, but by the end, we are surprised to find that he only feels like he should be happy rather than actually feeling true happiness. The sentence has been a journey that has taken us somewhere, from a stated truth to reversing that truth.";
+    //remove the commas and dot
+    text =text.replace(/,/g, "");
+    //change a upper case to lower case letter
+    text =text.toLowerCase();
+    const wordArray = text.split(" ");
+    //create a object
+    const wordCount = {};
+    wordArray.forEach((item) => {
+      if (wordCount[item] == null) wordCount[item] = 1;
+      else {
+        wordCount[item] += 1;
+      }
+    });
+    let myArray = Object.entries(wordCount);
+    //sort a array based on the count
+    function compare(a, b) {
+     	if (a[1] > b[1]) return -1;
+     	if (a[1] < b[1]) return 1;
+	    if (a[1] === b[1]) return 0;
+    }
+    bArray=myArray.sort(compare);
+   //pick a first three
+   bArray = bArray.slice(-6,-1);
+   //print a first three common words
+   console.log(bArray);
+};
+</script>
